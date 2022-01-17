@@ -21,7 +21,7 @@
     <arg name="use_sim_time" value="true"/>
     <arg name="debug" value="false"/>
     <arg name="gui" value="$(arg gui)" />
-    <arg name="world_name" value="$(find dogebot_gazebo)/worlds/doge.world"/>
+    <arg name="world_name" value="$(find dogebot)/worlds/doge.world"/>
   </include>
 
   <include file="$(find turtlebot_gazebo)/launch/includes/$(arg base).launch.xml">
@@ -34,10 +34,10 @@
     <param name="publish_frequency" type="double" value="30.0" />
   </node>
   
-  <param name="ball_description" command="cat '$(find dogebot_gazebo)/models/balon.urdf'" />
+  <param name="ball_description" command="cat '$(find dogebot)/models/balon.urdf'" />
   <node name="spawn_urdf_ball" pkg="gazebo_ros" type="spawn_model" args="-urdf -model ball_$(arg model_ball) -x $(arg x2_pos) -y $(arg y2_pos) -z $(arg z2_pos) -param ball_description" />
 
-  <param name="cube_description" command="cat '$(find dogebot_gazebo)/models/cube.urdf'" />
+  <param name="cube_description" command="cat '$(find dogebot)/models/cube.urdf'" />
   <node name="spawn_urdf_cube" pkg="gazebo_ros" type="spawn_model" args="-urdf -model cube_$(arg model_cube) -x $(arg x3_pos) -y $(arg y3_pos) -z $(arg z3_pos) -param cube_description" />
 
   <!-- Fake laser -->
